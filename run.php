@@ -27,8 +27,8 @@ function home($url, $ua = null){
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, $url);
 	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-        curl_setopt($ch, CURLOPT_COOKIEFILE, 'cok.txt');
-        curl_setopt($ch, CURLOPT_COOKIEJAR, 'cok.txt');
+curl_setopt($ch, CURLOPT_COOKIEFILE, 'cok.txt');
+curl_setopt($ch, CURLOPT_COOKIEJAR, 'cok.txt');
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_POST, 1);
 	curl_setopt($ch, CURLOPT_HTTPHEADER, $ua);
@@ -57,10 +57,10 @@ function curl($url, $ua, $data = null){
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, $url);
 	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+curl_setopt($ch, CURLOPT_COOKIEFILE, 'cok.txt');
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_POST, 1);
 	curl_setopt($ch, CURLOPT_HTTPHEADER, $ua);
-        curl_setopt($ch, CURLOPT_COOKIEFILE, 'cok.txt');
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 	$result = curl_exec($ch);
@@ -87,6 +87,9 @@ $ua = array(
 "Content-Type: application/x-www-form-urlencoded",
 "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
 "Referer: http://www.happycat01.com/mobile/reg/invite/99229.html:",
+"Cookie: PHPSESSID=ggcp4inu58m0cfq82mdvsmei8k; think_language=id; ann100=1; SERVERID=6cd80de8fe547502eebddedf8e08a8f4|1612379429|1612378716",
+
+
 );
 echo "
 ╭━━━╮╱╱╭╮╱╱╱╱╱╱╱╱╭╮╱╭┳━━━┳╮╱╭╮
@@ -113,8 +116,6 @@ $lagi = explode('\uff1a', $ambil_kata[3]);
 $otp = $lagi[1];
 $data = "vaptcha_token=&phone_pre=62&name=Anying&phone=089541$nmr&pwd=akunweb123&pwd2=akunweb123&smsCode=$otp&top=$reff";
 
-$get = home("http://www.happycat01.com/mobile/reg.html", $ua);
-
 $daftar = curl("http://www.happycat01.com/mobile/reg.html", $ua, $data);
 
 $masuk = home("http://www.happycat01.com/user/person.html", $ua, $data);
@@ -125,5 +126,6 @@ echo "\e[92m》Sukses《\e[39m\n";
 
 echo "\n\e[31m》Gagal[X]《\n\e[39m";
 }
+
 }
 ?>
