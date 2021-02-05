@@ -86,7 +86,9 @@ $ua = array(
 "User-Agent: Mozilla/5.0 (Linux; Android 6.0.1; SM-J500G Build/MMB29M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Mobile Safari/537.36",
 "Content-Type: application/x-www-form-urlencoded",
 "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-"Referer: http://www.happycat02.com/mobile/reg/invite/99229.html:",
+"Referer: http://www.happycat01.com/mobile/reg/invite/99229.html:",
+"Cookie: PHPSESSID=ggcp4inu58m0cfq82mdvsmei8k; think_language=id; ann100=1; SERVERID=6cd80de8fe547502eebddedf8e08a8f4|1612379429|1612378716",
+
 
 );
 echo "
@@ -108,16 +110,12 @@ $nmr = rand(44175, 592583);
 $dat = "phone=089541$nmr&token=&phone_pre=62";
 
 $getotp = otp("http://www.happycat01.com/Handle/zhuce.html", $ua, $dat);
-$ambil_kata = explode('"', $getotp);
-$ambil2 = isset($ambil_kata[3]) ? $ambil_kata[3] : null;
-$lagi = explode('\uff1a', $ambil2);
-$lagi2 = isset($lagi[1]) ? $lagi[1] : null;
-$otp = $lagi2;
-echo $otp;
+$otp = substr("$getotp",52,-1);
 $data = "vaptcha_token=&phone_pre=62&name=Anying&phone=089541$nmr&pwd=akunweb123&pwd2=akunweb123&smsCode=$otp&top=$reff";
 
-$daftar = curl("http://www.happycat02.com/mobile/reg.html", $ua, $data);
-$masuk = home("http://www.happycat02.com/user/person.html", $ua, $data);
+$daftar = curl("http://www.happycat01.com/mobile/reg.html", $ua, $data);
+
+$masuk = home("http://www.happycat01.com/user/person.html", $ua, $data);
 if($masuk){
 echo "\e[92m》Sukses《\e[39m\n";
 
