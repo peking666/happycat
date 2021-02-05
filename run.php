@@ -87,8 +87,6 @@ $ua = array(
 "Content-Type: application/x-www-form-urlencoded",
 "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
 "Referer: http://www.happycat01.com/mobile/reg/invite/99229.html:",
-"Cookie: PHPSESSID=ggcp4inu58m0cfq82mdvsmei8k; think_language=id; ann100=1; SERVERID=6cd80de8fe547502eebddedf8e08a8f4|1612379429|1612378716",
-
 
 );
 echo "
@@ -112,12 +110,12 @@ $dat = "phone=089541$nmr&token=&phone_pre=62";
 $getotp = otp("http://www.happycat01.com/Handle/zhuce.html", $ua, $dat);
 $ambil_kata = explode('"', $getotp);
 $lagi = explode('\uff1a', $ambil_kata[3]);
-
+echo $lagi[1];
 $otp = $lagi[1];
 $data = "vaptcha_token=&phone_pre=62&name=Anying&phone=089541$nmr&pwd=akunweb123&pwd2=akunweb123&smsCode=$otp&top=$reff";
 
 $daftar = curl("http://www.happycat01.com/mobile/reg.html", $ua, $data);
-
+echo $daftar;
 $masuk = home("http://www.happycat01.com/user/person.html", $ua, $data);
 if($masuk){
 echo "\e[92m》Sukses《\e[39m\n";
