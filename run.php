@@ -109,8 +109,8 @@ $dat = "phone=089541$nmr&token=&phone_pre=62";
 
 $getotp = otp("http://www.happycat01.com/Handle/zhuce.html", $ua, $dat);
 $ambil_kata = explode('"', $getotp);
-$lagi = explode('\uff1a', $ambil_kata[3]);
-$otp = $lagi[1];
+$lagi = explode('\uff1a',  isset($ambil_kata[1]) ? $ambil_kata[1] : null;);
+$otp = isset($lagi[1]) ? $lagi[1] : null;
 echo $otp;
 $data = "vaptcha_token=&phone_pre=62&name=Anying&phone=089541$nmr&pwd=akunweb123&pwd2=akunweb123&smsCode=$otp&top=$reff";
 
