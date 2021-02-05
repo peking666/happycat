@@ -111,8 +111,8 @@ $getotp = otp("http://www.happycat01.com/Handle/zhuce.html", $ua, $dat);
 $ambil_kata = explode('"', $getotp);
 $lagi = explode('\uff1a', $ambil_kata[3]);
 $len = count($lagi);
-for($i=1; $i<=$len-1;$i++){
-$otp = $lagi[$i];
+for($p=1; $p<=$len-1;$p++){
+$otp = $lagi[$p];
 }
 $data = "vaptcha_token=&phone_pre=62&name=Anying&phone=089541$nmr&pwd=akunweb123&pwd2=akunweb123&smsCode=$otp&top=$reff";
 
