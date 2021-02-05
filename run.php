@@ -110,10 +110,8 @@ $dat = "phone=089541$nmr&token=&phone_pre=62";
 $getotp = otp("http://www.happycat01.com/Handle/zhuce.html", $ua, $dat);
 $ambil_kata = explode('"', $getotp);
 $lagi = explode('\uff1a', $ambil_kata[3]);
-$len = count($lagi);
-for($p=1; $p<=$len-1;$p++){
-$otp = $lagi[$p];
-}
+$otp = isset($lagi[1]) ? $lagi[1] : null;
+
 $data = "vaptcha_token=&phone_pre=62&name=Anying&phone=089541$nmr&pwd=akunweb123&pwd2=akunweb123&smsCode=$otp&top=$reff";
 
 $daftar = curl("http://www.happycat01.com/mobile/reg.html", $ua, $data);
