@@ -110,12 +110,13 @@ $dat = "phone=089541$nmr&token=&phone_pre=62";
 $getotp = otp("http://www.happycat01.com/Handle/zhuce.html", $ua, $dat);
 $ambil_kata = explode('"', $getotp);
 $lagi = explode('\uff1a', $ambil_kata[3]);
-echo $lagi[1];
-$otp = $lagi[1];
+$len = count($lagi);
+for($i=1; $i<=$len-1;$i++){
+$otp = $lagi[$i];
+}
 $data = "vaptcha_token=&phone_pre=62&name=Anying&phone=089541$nmr&pwd=akunweb123&pwd2=akunweb123&smsCode=$otp&top=$reff";
 
 $daftar = curl("http://www.happycat01.com/mobile/reg.html", $ua, $data);
-echo $daftar;
 $masuk = home("http://www.happycat01.com/user/person.html", $ua, $data);
 if($masuk){
 echo "\e[92m》Sukses《\e[39m\n";
