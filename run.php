@@ -114,8 +114,8 @@ $otp = isset($lagi[1]) ? $lagi[1] : null;
 echo $otp;
 $data = "vaptcha_token=&phone_pre=62&name=Anying&phone=089541$nmr&pwd=akunweb123&pwd2=akunweb123&smsCode=$otp&top=$reff";
 
-$daftar = curl("http://www.happycat01.com/mobile/reg.html", $ua, $data);
-$masuk = home("http://www.happycat01.com/user/person.html", $ua, $data);
+$daftar = curl("http://www.happycat02.com/mobile/reg.html", $ua, $data);
+$masuk = home("http://www.happycat02.com/user/person.html", $ua, $data);
 if($masuk){
 echo "\e[92m》Sukses《\e[39m\n";
 
